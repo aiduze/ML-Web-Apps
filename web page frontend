@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apriori Results</title>
+</head>
+<body>
+    <h1>Apriori Algorithm Results</h1>
+    <ul id="rules-list"></ul>
+
+    <script>
+        async function fetchRules() {
+            const response = await fetch('/rules');
+            const rules = await response.json();
+            const rulesList = document.getElementById('rules-list');
+
+            rules.forEach(rule => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `Items: ${rule.items.join(', ')} - Support: ${rule.support.toFixed(2)} - Confidence: ${rule.confidence.toFixed(2)} - Lift: ${rule.lift.toFixed(2)}`;
+                rulesList.appendChild(listItem);
+            });
+        }
+
+        window.onload = fetchRules;
+    </script>
+</body>
+</html>
