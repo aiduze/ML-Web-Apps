@@ -3,9 +3,9 @@
 This project implements the Apriori algorithm for association rule mining and deploys the results to a simple web application using Flask.
 
 ### Project Structure:
-- python app
-- json results file
-- csv file 
+- python app as "Apriori Algorithm on Groceries"
+- json results file as "apriori_results.json"
+- csv file as "groceries.csv" gotten from Kaggle
 - templates
 - html file
 
